@@ -1,0 +1,12 @@
+const fs = require('fs');
+const twentytwenty = 2020;
+let input = fs.readFileSync('input').toString().split("\n");
+input = input.map((m) => parseInt(m, 10));
+// console.log(input)
+for (let i = 0; i <input.length; i++) {
+  for (let j = i + 1; j <input.length - 1; j++) {
+    if (input[i] + input[j] === twentytwenty) {
+      console.log(input[i] * input[j])
+    }
+  }
+}
