@@ -6,7 +6,7 @@ const iyr = [2010, 2020];
 const eyr = [2020, 2030];
 const hgt = [[150, 193], [59, 76]];
 const ecl = ['amb', 'blu', 'brn', 'gry', 'grn', 'hzl', 'oth'];
-// console.log(input)
+
 let valid = 0;
 input.forEach((line) => {
   const hop = line.split(/\s+/);

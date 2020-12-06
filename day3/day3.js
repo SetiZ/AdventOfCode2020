@@ -1,5 +1,4 @@
 const fs = require('fs');
-const twentytwenty = 2020;
 let input = fs.readFileSync('input').toString().split("\n");
 let multiTrees = []
 const slopes = [
