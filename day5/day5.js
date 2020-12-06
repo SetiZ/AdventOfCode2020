@@ -40,4 +40,14 @@ input.forEach((line) => {
 })
 
 // console.log(seatIds)
-console.log(Math.max(...seatIds));
+// console.log(Math.max(...seatIds));
+
+const allSeats = seatIds.sort((a, b) => a - b)
+// console.log(allSeats)
+let firstSeat = allSeats[0];
+let i = 0
+while (firstSeat === allSeats[i]) {
+  firstSeat++;
+  i++
+}
+console.log(firstSeat)
