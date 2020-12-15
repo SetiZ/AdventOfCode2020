@@ -1,17 +1,28 @@
 const fs = require('fs');
-let input = fs.readFileSync('input').toString().split("\n");
+let input = fs.readFileSync('test').toString().split("\n");
 
-let savedBags = []
+let savedBags = 0
 let shiny = 'shiny gold'
 let objectBag;
 
 const findShiny = (motcle) => {
   for (const [key, value] of Object.entries(objectBag)) {
-    if (value.indexOf(motcle) !== -1) {
-      savedBags.push(key)
-      findShiny(key)
+    if (key.indexOf(motcle) !== -1) {
+      let save = value
+      save = save.split(', ').map((b) => {
+        return b.substr(0, b.indexOf(' bag'));
+      })
+      console.log(save)
+      save.forEach((b) => {
+        const [number, bag] = b.split(/\s(.+)/);
+        if (number !== 'no') {
+          console.log('my number',number)
+          savedBags += +number * findShiny(bag)
+        }
+      })
     }
   }
+  console.log(savedBags)
   return savedBags
 }
 
@@ -30,6 +41,6 @@ objectBag = Object.fromEntries(bigBags);
 
 let saved = findShiny(shiny)
 // console.log(saved)
-saved = [...new Set(saved)];
+// saved = [...new Set(saved)];
 // console.log(saved)
-console.log(saved.length)
+// console.log(saved.length)
